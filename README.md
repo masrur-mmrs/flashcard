@@ -1,2 +1,2 @@
-# flashcard
- Flashcard app using React
+# Flashcard
+ Flashcard web app using React

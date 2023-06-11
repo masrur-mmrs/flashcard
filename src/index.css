@@ -1,0 +1,13 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    font-family: helvetica, arial, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    overflow: hidden;
+  }
+
+  img {
+    height: 50% !important;
+    width: 50% !important;
+    filter: contrast(1.2) brightness(1.1) saturate(1.2) invert(1);
+}

@@ -1,0 +1,119 @@
+.dummy-cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    transition: transform 550ms;
+}
+
+.dummy-cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    text-align: center;
+    position: absolute;
+    width: 300px;
+    height: 150px;
+    border-radius:  25px;
+    border: 2px solid black;
+    background-color: #17171f;
+    color: white;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.dummy-cards:nth-child(3){
+    transform: translate(5%, 5%);
+}
+
+.dummy-cards:nth-child(2){
+    transform: translate(10%, 10%);
+}
+
+.dummy-cards:first-child {
+    transform: translate(15%, 15%);
+}
+
+.card-lift {
+    animation-name: card-lift-up;
+    animation-duration: 550ms;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+}
+
+.card-lift-rev {
+    animation-name: card-lift-up;
+    animation-duration: 550ms;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-direction: reverse;
+}
+
+.card-shuffle-1 {
+    animation-name: card-shuffle-1-animation;
+    animation-duration: 550ms;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+}
+
+.card-shuffle-1-rev {
+    animation-name: card-shuffle-1-animation;
+    animation-duration: 550ms;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-direction: reverse;
+}
+
+.card-shuffle-2 {
+    animation-name: card-shuffle-2-animation;
+    animation-duration: 550ms;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+}
+
+.card-shuffle-2-rev {
+    animation-name: card-shuffle-2-animation;
+    animation-duration: 550ms;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-direction: reverse;
+}
+
+.card-shuffle-3 {
+    animation-name: card-shuffle-3-animation;
+    animation-duration: 550ms;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+}
+
+.card-shuffle-3-rev {
+    animation-name: card-shuffle-3-animation;
+    animation-duration: 550ms;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-direction: reverse;
+}
+
+@keyframes card-lift-up {
+    0% {
+        top: 38vh;
+    }
+    100% {
+        top: 10vh;
+    }
+}
+
+@keyframes card-shuffle-1-animation {
+    0%{transform: translate(15%, 15%);}
+    100%{transform: translate(10%, 10%);}
+}
+
+@keyframes card-shuffle-2-animation {
+    0%{transform: translate(10%, 10%);}
+    100%{transform: translate(5%, 5%);}
+}
+
+@keyframes card-shuffle-3-animation {
+    0%{transform: translate(5%, 5%);}
+    100%{transform: translate(0%, 0%);}
+}
