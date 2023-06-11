@@ -19,6 +19,8 @@ const App = () => {
   const [flashCards, setFlashCards] = useState(Flashcards);
   const [StudySetCount, setStudySetCount] = useState(Object.keys(Flashcards).length);
 
+  const [AddCardClicked, setAddCardClicked] = useState(false);
+
   const animationEndHandler = () => {
     setSwiped(0);
   }
@@ -46,6 +48,10 @@ const App = () => {
     setFlashCardFlipped(!flashCardFlipped);
   }
 
+  const handleAddCardClicked = () => {
+    setAddCardClicked(!AddCardClicked);
+  };
+
   useEffect(() => {
     
   }, [swiped, currentCardIndex, setCurrentCardIndex]);
@@ -70,7 +76,7 @@ const App = () => {
         flip={flipHandler}
         onSwipe={swipeHandler} />
       <div className="button-row">
-        <AddCard />
+        <AddCard clicked={handleAddCardClicked} />
         <Browse />
         <Search />
       </div>

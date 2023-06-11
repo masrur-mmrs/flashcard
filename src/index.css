@@ -11,3 +11,12 @@ body{
     width: 50% !important;
     filter: contrast(1.2) brightness(1.1) saturate(1.2) invert(1);
 }
+
+button {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:active {
+  transform: scale(0.8); /* Move the button down by 2 pixels */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}

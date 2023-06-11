@@ -3,9 +3,15 @@ import React from 'react'
 import './AddCard.css'
 import Add from "../../../assets/add.png"
 
-const AddCard = () => {
+// eslint-disable-next-line react/prop-types
+const AddCard = ({clicked}) => {
+
+  const handleClick = () => {
+    clicked();
+  };
+
   return (
-    <button className="addCardButton">
+    <button className="addCardButton" onClick={handleClick}>
         <img src={Add} alt="Add Card"/>
     </button>
   )
