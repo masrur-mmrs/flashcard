@@ -6,7 +6,7 @@ import { useSwipeable } from 'react-swipeable';
 
 
 // eslint-disable-next-line react/prop-types
-const Card = ({ frontContent, backContent, swipeAnimation, onSwipe, flip, cardFlipped, isAddCardClicked }) => {
+const Card = ({ frontContent, backContent, swipeAnimation, onSwipe, flip, cardFlipped, isAddCardClicked, onCardAdded }) => {
   const [isFlipped, setIsFlipped] = useState(cardFlipped);
   const [swiped, setSwiped] = useState("");
   const [visible, setVisible] = useState(isAddCardClicked);
@@ -40,6 +40,10 @@ const Card = ({ frontContent, backContent, swipeAnimation, onSwipe, flip, cardFl
       flip();
       questionInputRef.current.focus();
       
+    } else if (inputQuestion.length > 0 && inputAnswer.length > 0) {
+      e.preventDefault();
+      onCardAdded(inputAnswer, inputQuestion);
+      flip();
     }
   };
 

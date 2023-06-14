@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, get } from "firebase/database";
+import { getDatabase, ref, get, update } from "firebase/database";
 import { firebaseConfig } from "./.firebase.config";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -26,5 +26,8 @@ export const getFlashCards = async() => {
 
 }
 
+export const addFlashCard = async(dataToUpdate) => {
+    await update(dbRef, dataToUpdate)
+};
 
 export default app;

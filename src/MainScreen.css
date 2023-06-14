@@ -30,6 +30,28 @@
     border-radius: 25px 25px 0px 0px;
 }
 
+.animateIn {
+    animation-name: slide-in;
+    animation-duration: 550ms;
+    animation-timing-function: ease-in;
+}
+
+.animateOut {
+    animation-name: slide-out;
+    animation-duration: 550ms;
+    animation-timing-function: ease-out;
+}
+
+@keyframes slide-in {
+    from { bottom: -50% }
+    to { bottom: 0% }
+}
+
+@keyframes slide-out {
+    from { bottom: 0% }
+    to { bottom: -50% }
+}
+
 form: {
     display: inline-flex;
     justify-content: center;
