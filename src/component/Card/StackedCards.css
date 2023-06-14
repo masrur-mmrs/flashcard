@@ -8,6 +8,29 @@
 }
 
 
+
+.mount {
+    animation-name: scale-up;
+    animation-duration: 550ms;
+    animation-timing-function: ease-in;
+}
+
+.unmount {
+    animation-name: scale-down;
+    animation-duration: 550ms;
+    animation-timing-function: ease-out;
+}
+
+@keyframes scale-down {
+    from { scale: 1 }
+    to { scale: 0 }
+}
+
+@keyframes scale-up {
+    from { scale: 0 }
+    to { scale: 1 } 
+}
+
 .dummy-cards {
     display: flex;
     align-items: center;
@@ -23,9 +46,6 @@
     box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
 }
 
-.dummy-cards:last-child {
-    top: 38vh;
-}
 
 .dummy-cards:nth-child(3){
     transform: translate(5%, 5%);

@@ -30,7 +30,15 @@ const StackedCards = ({nextCardAnimation, nextQuestion, thirdQuestion, onAnimate
     }
 
     useEffect(() =>  {
-        setVisible(true);
+        if (isAddCardClicked) {
+            setTimeout(() => {
+                setVisible(false);
+            }, 540);
+        } else {
+            setTimeout(() => {
+                setVisible(true);
+            }, 540);
+        }
         switch (nextCardAnimation) {
             case 0:
                 setAnimateUp(false)
@@ -47,17 +55,17 @@ const StackedCards = ({nextCardAnimation, nextQuestion, thirdQuestion, onAnimate
             default:
                 break;
         }
-        return () => {setVisible(false);}
-    }, [nextCardAnimation]);
+    }, [nextCardAnimation, isAddCardClicked]);
 
 
     // if (isAddCardClicked) {
     //     return <></>
     // }
     
-  return isAddCardClicked?(<></>):(
-   <div className={`dummy-cards-container`} {...handlers} onAnimationEnd={animationEndHadler}>
-    <div className="dummy-cards"></div>
+  return (
+    (!visible)?<></>:
+   <div className={`dummy-cards-container ${isAddCardClicked?"unmount":"mount"}`} {...handlers} onAnimationEnd={animationEndHadler}>
+    <div className={`dummy-cards `}></div>
     <div className={`dummy-cards ${animateUp?"card-shuffle-1":""} ${animateDown?"card-shuffle-1-rev":""}`}></div>
     <div className={`dummy-cards ${animateUp?"card-shuffle-2":""} ${animateDown?"card-shuffle-2-rev":""}`}></div>
     <div className={`dummy-cards ${animateUp?"card-shuffle-3":""} ${animateDown?"card-shuffle-3-rev":""}`}>{thirdQuestion}</div>
