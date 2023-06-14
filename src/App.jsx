@@ -8,16 +8,19 @@ import Browse from './component/Buttons/Browse/Browse'
 import Search from './component/Buttons/Search/Search'
 import StackedCards from './component/Card/StackedCards'
 
-import Flashcards from "./StudeSet.js"
+import { getFlashCards } from './firebase'
+
+
 
 const App = () => {
+  const [flashCards, setFlashCards] = useState(null);
+
   const [swiped, setSwiped] = useState(0);
+
 
   const [flashCardFlipped, setFlashCardFlipped] = useState(false);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [currentStudeSetIndex, setCurrentStudeSetIndex] = useState(0);
-  const [flashCards, setFlashCards] = useState(Flashcards);
-  const [StudySetCount, setStudySetCount] = useState(Object.keys(Flashcards).length);
 
   const [AddCardClicked, setAddCardClicked] = useState(false);
 
@@ -51,29 +54,41 @@ const App = () => {
   const handleAddCardClicked = () => {
     setAddCardClicked(!AddCardClicked);
   };
+  
 
   useEffect(() => {
+    getFlashCards().then((data) => {
+      setFlashCards(data);
+    }).catch((err) => {
+      console.log(err);
+    })
     
-  }, [swiped, currentCardIndex, setCurrentCardIndex]);
+  },[flashCards]);
+
+  if (!flashCards) {
+    return <></>
+  }
 
   return (
-    <div className='container'>
+    <div className='container' >
       <div className="center">
         <Card
           frontContent={flashCards[Object.keys(flashCards)[currentStudeSetIndex]][currentCardIndex].question}
           backContent={flashCards[Object.keys(flashCards)[currentStudeSetIndex]][currentCardIndex].answer}
           swipeAnimation={swiped}
           flip={flipHandler}
+          isAddCardClicked={AddCardClicked}
           cardFlipped={flashCardFlipped}
           onSwipe={swipeHandler} />
       </div>
-      <StackedCards
+     <StackedCards
         nextCardAnimation={swiped}
         nextQuestion={flashCards[Object.keys(flashCards)[currentStudeSetIndex]][currentCardIndex + 1].question}
         thirdQuestion={flashCards[Object.keys(flashCards)[currentStudeSetIndex]][currentCardIndex + 2].question}
         onAnimated={animationEndHandler}
         cardFlipped={flashCardFlipped}
         flip={flipHandler}
+        isAddCardClicked={AddCardClicked}
         onSwipe={swipeHandler} />
       <div className="button-row">
         <AddCard clicked={handleAddCardClicked} />

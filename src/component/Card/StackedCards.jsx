@@ -4,11 +4,13 @@ import React, { useEffect, useState } from "react"
 import { useSwipeable } from "react-swipeable";
 import "./StackedCards.css"
 
-const StackedCards = ({nextCardAnimation, nextQuestion, thirdQuestion, onAnimated, onSwipe, cardFlipped, flip,}) => {
+const StackedCards = ({nextCardAnimation, nextQuestion, thirdQuestion, onAnimated, onSwipe, cardFlipped, flip, isAddCardClicked}) => {
 
     const [animateUp, setAnimateUp] = useState(false);
     const [animateDown, setAnimateDown] = useState(false);
+    const [visible, setVisible] = useState(true);
 
+    
 
     const handlers = useSwipeable({
         onSwiped: (e) => {
@@ -27,7 +29,8 @@ const StackedCards = ({nextCardAnimation, nextQuestion, thirdQuestion, onAnimate
         onAnimated();
     }
 
-    useEffect(() => {
+    useEffect(() =>  {
+        setVisible(true);
         switch (nextCardAnimation) {
             case 0:
                 setAnimateUp(false)
@@ -44,11 +47,16 @@ const StackedCards = ({nextCardAnimation, nextQuestion, thirdQuestion, onAnimate
             default:
                 break;
         }
-        
+        return () => {setVisible(false);}
     }, [nextCardAnimation]);
+
+
+    // if (isAddCardClicked) {
+    //     return <></>
+    // }
     
-  return (
-   <div className="dummy-cards-container" {...handlers}>
+  return isAddCardClicked?(<></>):(
+   <div className={`dummy-cards-container`} {...handlers} onAnimationEnd={animationEndHadler}>
     <div className="dummy-cards"></div>
     <div className={`dummy-cards ${animateUp?"card-shuffle-1":""} ${animateDown?"card-shuffle-1-rev":""}`}></div>
     <div className={`dummy-cards ${animateUp?"card-shuffle-2":""} ${animateDown?"card-shuffle-2-rev":""}`}></div>

@@ -29,3 +29,29 @@
     bottom: 0%;
     border-radius: 25px 25px 0px 0px;
 }
+
+form: {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+input[type="text"] {
+    border: none;
+    border-bottom: 1px solid white;
+    border-radius: 0px;
+    width: 90%;
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: transparent !important;
+    background: none !important;
+    outline: none !important;
+    color: white !important;
+    font-size: 24px !important;
+    text-align: center !important;
+}
+
+p {
+    padding: 5px;
+}

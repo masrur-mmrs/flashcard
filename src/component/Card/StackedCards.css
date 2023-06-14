@@ -4,7 +4,9 @@
     align-items: center;
     margin: 10px;
     transition: transform 550ms;
+    color: white;
 }
+
 
 .dummy-cards {
     display: flex;
@@ -18,8 +20,11 @@
     border-radius:  25px;
     border: 2px solid black;
     background-color: #17171f;
-    color: white;
     box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.dummy-cards:last-child {
+    top: 38vh;
 }
 
 .dummy-cards:nth-child(3){
@@ -35,18 +40,28 @@
 }
 
 .card-lift {
-    animation-name: card-lift-up;
+    animation-name: card-lift-up-animation;
     animation-duration: 550ms;
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
 }
 
 .card-lift-rev {
-    animation-name: card-lift-up;
+    animation-name: card-lift-up-animation;
     animation-duration: 550ms;
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
     animation-direction: reverse;
+}
+
+
+@keyframes card-lift-up-animation {
+    from {
+        top: 38vh;
+    }
+    to {
+        top: 10vh;
+    }
 }
 
 .card-shuffle-1 {
@@ -54,6 +69,11 @@
     animation-duration: 550ms;
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
+}
+
+@keyframes card-shuffle-1-animation {
+    from {transform: translate(15%, 15%);}
+    to {transform: translate(10%, 10%);}
 }
 
 .card-shuffle-1-rev {
@@ -71,6 +91,11 @@
     animation-timing-function: ease-in-out;
 }
 
+@keyframes card-shuffle-2-animation {
+    from {transform: translate(10%, 10%);}
+    to {transform: translate(5%, 5%);}
+}
+
 .card-shuffle-2-rev {
     animation-name: card-shuffle-2-animation;
     animation-duration: 550ms;
@@ -86,6 +111,11 @@
     animation-timing-function: ease-in-out;
 }
 
+@keyframes card-shuffle-3-animation {
+    from {transform: translate(5%, 5%);}
+    to {transform: translate(0%, 0%);}
+}
+
 .card-shuffle-3-rev {
     animation-name: card-shuffle-3-animation;
     animation-duration: 550ms;
@@ -94,26 +124,13 @@
     animation-direction: reverse;
 }
 
-@keyframes card-lift-up {
-    0% {
-        top: 38vh;
-    }
-    100% {
-        top: 10vh;
-    }
-}
 
-@keyframes card-shuffle-1-animation {
-    0%{transform: translate(15%, 15%);}
-    100%{transform: translate(10%, 10%);}
-}
 
-@keyframes card-shuffle-2-animation {
-    0%{transform: translate(10%, 10%);}
-    100%{transform: translate(5%, 5%);}
-}
 
-@keyframes card-shuffle-3-animation {
-    0%{transform: translate(5%, 5%);}
-    100%{transform: translate(0%, 0%);}
-}
+
+
+
+
+
+
+
