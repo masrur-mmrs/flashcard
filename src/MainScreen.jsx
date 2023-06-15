@@ -7,6 +7,7 @@ import AddCard from './component/Buttons/AddCard/AddCard'
 import Browse from './component/Buttons/Browse/Browse'
 import Search from './component/Buttons/Search/Search'
 import StackedCards from './component/Card/StackedCards'
+import ButtonRow from './component/ButtonRow'
 
 import { getFlashCards, addFlashCard } from './firebase'
 
@@ -116,11 +117,11 @@ const MainScreen = () => {
         flip={flipHandler}
         isAddCardClicked={AddCardClicked}
         onSwipe={swipeHandler} />
-      <div className={`button-row ${AddCardClicked?"animateOut":"animateIn"}`}>
+      <ButtonRow animationFlag={AddCardClicked}>
         <AddCard clicked={handleAddCardClicked} />
         <Browse />
         <Search />
-      </div>
+      </ButtonRow>
     </div>
   )
 }
